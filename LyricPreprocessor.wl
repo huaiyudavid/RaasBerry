@@ -1,4 +1,6 @@
-lyricFiles = Import["~/eminem/ohhla.com/anonymous/*/*/*.txt"];
+(* ::Package:: *)
+
+lyricFiles = Import["~/Documents/Programming/VandyHacks/www.ohhla.com/anonymous/*/*/*.txt"];
 
 On[Assert];
 preprocess[lyricFile_] := Block[
@@ -22,3 +24,4 @@ preprocess[lyricFile_] := Block[
     lyricBody = StringReplace[lyricBody, "-" -> " "];
     lyricBody,
     ""]];
+Export["~/torch/torch-rnn/lyrics_ss.txt", StringJoin[preprocess /@ lyricFiles]]
