@@ -1,0 +1,4 @@
+th train.lua -gpu -1 -input_h5 lyrics_ss.h5 -input_json lyrics_ss.json -rnn_size 512 -num_layers 2 -checkpoint_every 20 -checkpoint_name cv_ss/checkpoint
+python scripts/preprocess.py --input_txt lyrics_ss.txt --output_h5 lyrics_ss.h5 --output_json lyrics_ss.json --val_frac 0.01 --test_frac 0.01
+th sample.lua -gpu -1 -checkpoint cv_ss/`ls -v cv_ss | tail -n 1` -sample 1
+th sample.lua -gpu -1 -checkpoint cv_kl_big/`ls -v cv_kl_big | tail -n 1` -sample 1
